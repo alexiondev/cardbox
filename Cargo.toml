@@ -1,0 +1,12 @@
+[workspace]
+members = [
+    "common",
+    "simple_binary",
+]
+
+# Following: https://github.com/johnthagen/min-sized-rust
+[profile.release]
+strip = true
+opt-level = "s"
+lto = true
+codegen-units = 1
