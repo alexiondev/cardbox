@@ -1,6 +1,10 @@
+use strum_macros::EnumIter;
 
-#[derive(Debug)]
+
+#[derive(Debug, Default, EnumIter, PartialEq)]
 pub enum Species {
+    #[default]
+    DEFAULT,
     UNKNOWN,
     Bulbasaur,
     Ivysaur,
@@ -155,13 +159,20 @@ pub enum Species {
     Mew,
 }
 
-#[derive(Debug)]
-pub enum SpeciesId {
-    Gen1(u8),
-}
-
 impl Species {
-    fn from_gen1_id(id: u8) -> Self {
+    pub fn to_filename(&self) -> String {
+        return match self {
+            Species::DEFAULT |
+            Species::UNKNOWN => String::new(),
+            Species::NidoranM => String::from("nidoran-m"),
+            Species::NidoranF => String::from("nidoran-f"),
+            Species::MrMime => String::from("mr-mime"),
+            _ => format!("{:?}", self).to_lowercase(),
+        }
+    }
+}
+impl From<u8> for Species {
+    fn from(id: u8) -> Self {
         return match id {
             001 => Self::Rhydon,
             002 => Self::Kangaskhan,
@@ -314,14 +325,6 @@ impl Species {
             189 => Self::Weepinbell,
             190 => Self::Victreebel,
             _ => Self::UNKNOWN,
-        }
-    }
-}
-
-impl From<SpeciesId> for Species {
-    fn from(id_type: SpeciesId) -> Self {
-        return match id_type {
-            SpeciesId::Gen1(id) => Species::from_gen1_id(id),
         }
     }
 }

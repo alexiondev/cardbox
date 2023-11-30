@@ -2,7 +2,9 @@
 members = [
     "common",
     "simple_binary",
+    "tools",
 ]
+resolver = "2"
 
 # Following: https://github.com/johnthagen/min-sized-rust
 [profile.release]
