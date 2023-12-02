@@ -10,17 +10,17 @@ const SAV1_CURR_BOX_DATA_OFFSET     : usize = 0x30C0;
 const SAV1_BANK_2_OFFSET            : usize = 0x4000;
 const SAV1_BANK_3_OFFSET            : usize = 0x6000;
 
-type Party1 = [Pk1; 6];
-type Box1 = [Pk1; 20];
-type Boxes1 = [Box1; 12];
+pub type Party1 = [Pk1; 6];
+pub type Box1 = [Pk1; 20];
+pub type Boxes1 = [Box1; 12];
 
 #[derive(Debug, Default)]
 pub struct Sav1 {
     data: Vec<u8>,
 
-    party: Party1,
-    curr_box: Box1,
-    boxes: Boxes1,
+    pub party: Party1,
+    pub curr_box: Box1,
+    pub boxes: Boxes1,
 }
 
 impl From<Vec<u8>> for Sav1 {

@@ -26,7 +26,7 @@ const BOX1_POKEMON_NAMES_ENTRY_SIZE             : usize = 0xB;
 const PK1_SPECIES_OFFSET    : usize = 0x00;
 #[derive(Debug, Default)]
 pub struct Pk1 {
-    species: Species,
+    pub species: Species,
 }
 
 impl Pk1 {
