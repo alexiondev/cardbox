@@ -1,6 +1,5 @@
 use strum_macros::EnumIter;
 
-
 #[derive(Debug, Default, EnumIter, PartialEq)]
 pub enum Species {
     #[default]
@@ -162,13 +161,12 @@ pub enum Species {
 impl Species {
     pub fn to_filename(&self) -> String {
         return match self {
-            Species::DEFAULT |
-            Species::UNKNOWN => String::new(),
+            Species::DEFAULT | Species::UNKNOWN => String::new(),
             Species::NidoranM => String::from("nidoran-m"),
             Species::NidoranF => String::from("nidoran-f"),
             Species::MrMime => String::from("mr-mime"),
             _ => format!("{:?}", self).to_lowercase(),
-        }
+        };
     }
 }
 impl From<u8> for Species {
@@ -325,6 +323,6 @@ impl From<u8> for Species {
             189 => Self::Weepinbell,
             190 => Self::Victreebel,
             _ => Self::UNKNOWN,
-        }
+        };
     }
 }

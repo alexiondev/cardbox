@@ -5,7 +5,7 @@ use simple_logger::SimpleLogger;
 
 mod import;
 
-fn main() -> anyhow::Result<()>{
+fn main() -> anyhow::Result<()> {
     SimpleLogger::new().init().unwrap();
 
     let args: Vec<String> = env::args().collect();

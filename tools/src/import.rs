@@ -1,4 +1,3 @@
-
 use std::fs;
 
 use anyhow;
@@ -12,8 +11,7 @@ const ASSETS_DIR: &str = "assets/sprites/box";
 pub fn import_named(path: &str) -> anyhow::Result<()> {
     for pokemon in Species::iter() {
         match pokemon {
-            Species::DEFAULT |
-            Species::UNKNOWN => continue,
+            Species::DEFAULT | Species::UNKNOWN => continue,
             _ => import(path, &pokemon.to_filename())?,
         };
     }

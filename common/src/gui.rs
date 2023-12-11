@@ -1,9 +1,5 @@
-pub mod geometry;
+pub mod datatypes;
 pub mod util;
-pub mod components;
-
-mod traits;
-pub use traits::*;
 
 pub const WINDOW_TITLE: &str = "Cardbox";
 pub const SCREEN_WIDTH: u32 = 640;
