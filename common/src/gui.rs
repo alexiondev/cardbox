@@ -1,4 +1,5 @@
 pub mod datatypes;
+pub mod ecs;
 pub mod util;
 
 pub const WINDOW_TITLE: &str = "Cardbox";
